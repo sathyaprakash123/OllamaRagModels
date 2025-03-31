@@ -16,4 +16,16 @@ interface1 = gr.Interface(
    description="Interface to communicate with Model: DeepSeek",
 )
 
-interface1.launch(server_port=8000)
+interface2 = gr.Interface(
+   fn=OllamaDeepSeek.describe_image,
+   inputs= [
+      gr.Textbox(label="Name/Path of the image file"),
+      gr.Textbox(label="Question you want to ask about the image")
+   ],
+   outputs=gr.Text(label="Result"),
+   title="SAT RAG AI Testing Interface",
+   description="Interface to communicate with Model: DeepSeek",
+)
+
+#interface1.launch(server_port=8000)
+interface2.launch(server_port=8001)
